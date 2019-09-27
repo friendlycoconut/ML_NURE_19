@@ -28,6 +28,25 @@ if __name__ == '__main__':
     # print(training)
     # print(testing)
 
-    changed_list = changer(origin_list)
-    print(changed_list)
+    changed_training, changed_testing = changer(training), changer(testing)
+    # print(changed_training)
+    # print(changed_testing)
 
+    with open('iris_punished.data') as file:
+        iris_punished = [line.rstrip() for line in file]
+
+    sum = 0
+    kol = 0
+    avarage = 0
+    for i in range(len(iris_punished)):
+        if iris_punished[i].find('setosa') != -1:
+            data = iris_punished[i].split(',')
+            if data[1] != '?':
+                sum += float(data[1])
+                kol += 1
+            else:
+                kol += 1
+
+    print(round(sum, 1))
+    print(round(sum / kol, 1))
+    print(kol)
