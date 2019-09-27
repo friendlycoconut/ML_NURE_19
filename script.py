@@ -6,16 +6,15 @@ def get_training_and_testing_lists(list):
     return jumbled_list[:int(0.7*len(list))], jumbled_list[int(0.7*len(list)):]
 
 
-# def changer(list):
-#     for element in list:
-#         if element.find('setosa') != -1:
-#             element = element.replace('setosa', '1')
-#         elif element.find('versicolor') != -1:
-#             element = element.replace('versicolor', '2')
-#         elif element.find('virginica') != -1:
-#             element = element.replace('virginica', '3')
-#
-#     return list
+def changer(list):
+    for i in range(len(list)):
+        if list[i].find('setosa') != -1:
+            list[i] = list[i].replace('setosa', '1')
+        elif list[i].find('versicolor') != -1:
+            list[i] = list[i].replace('versicolor', '2')
+        elif list[i].find('virginica') != -1:
+            list[i] = list[i].replace('virginica', '3')
+    return list
 
 
 if __name__ == '__main__':
@@ -24,10 +23,11 @@ if __name__ == '__main__':
     with open('iris.data') as f:
         origin_list = [line.rstrip() for line in f]
 
-    print(origin_list)  # Debug
+    # print(origin_list)  # Debug
     training, testing = get_training_and_testing_lists(origin_list)
-    # print(len(origin_list), len(training), len(testing),  len(training) + len(testing))
+    # print(training)
+    # print(testing)
 
-    # changed_list = changer(origin_list)
-    # print(changed_list)
+    changed_list = changer(origin_list)
+    print(changed_list)
 
