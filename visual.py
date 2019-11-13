@@ -39,4 +39,16 @@ ax.w_yaxis.set_ticklabels([])
 ax.set_zlabel("3-е измерение")
 ax.w_zaxis.set_ticklabels([])
 
+plt.figure(figsize=(10, 7))
+
+features = iris.data.T
+petal_length = features[3]
+x= petal_length
+plt.hist(x, bins=20, color="green")
+plt.title("Petal Length in cm")
+plt.xlabel("Petal_Length_cm")
+plt.ylabel("Count")
+
+
 plt.show()
+
