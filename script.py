@@ -5,6 +5,7 @@ def get_training_and_testing_lists(list):
     jumbled_list = random.sample(list, len(list))
     return jumbled_list[:int(0.7*len(list))], jumbled_list[int(0.7*len(list)):]
 
+
 def changer(list):
     for i in range(len(list)):
         if list[i].find('setosa') != -1:
